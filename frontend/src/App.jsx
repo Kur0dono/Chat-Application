@@ -24,10 +24,10 @@ const App = () => {
   , [checkAuth]);
   console.log({authUser});
 
-  if (isCheckingAuth && !authUser) 
+  if (isCheckingAuth ) 
     return(
     <div className="flex justify-center items-center h-screen">
-    <Loader classname="size-10 animate-spin"/> 
+    <Loader className="size-10 animate-spin"/> 
     </div>
   );
   
@@ -42,7 +42,7 @@ const App = () => {
     <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
     <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/" />} />
     <Route path="/settings" element={<SettingsPage />} />
-    <Route path="/profile" element={ <ProfilePage />  } />
+    <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
 
 
     </Routes>
