@@ -18,7 +18,7 @@ const ChatMessages = () => {
                 <img
                   src={msg.image}
                   alt="sent"
-                  className="rounded-lg mb-1 max-w-[50px] max-h-[50px] object-cover"
+                  className="rounded-lg mb-1 max-w-[220px] max-h-[180px] object-cover"
                   style={{ border: "1px solid #eee" }}
                 />
               )}
