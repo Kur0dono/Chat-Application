@@ -1,0 +1,853 @@
+.chat,
+.chat * {
+  box-sizing: border-box;
+}
+.chat {
+  background: #f5f5f5;
+  height: 960px;
+  position: relative;
+  overflow: hidden;
+}
+.chat .profile {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #e0e0e0;
+  border-width: 0px 0px 0px 1px;
+  width: 256px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.chat .person {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 208px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 24px;
+}
+.chat .avatar {
+  background: #f7f7f7;
+  border-radius: 1000px;
+  flex-shrink: 0;
+  width: 128px;
+  height: 128px;
+  position: relative;
+  overflow: hidden;
+}
+.chat .rectangle-1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.chat .frame-2610364 {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.chat .ellipse-1 {
+  background: #22fc51;
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  position: relative;
+}
+.chat .helena {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  line-height: 150%;
+  font-weight: 500;
+  position: relative;
+  align-self: stretch;
+}
+.chat .active-20-m-ago {
+  color: #454545;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .conversation {
+  background: #ffffff;
+  position: absolute;
+  right: 256px;
+  left: 400px;
+  bottom: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.chat .reply {
+  background: #ffffff;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: #e0e0e0;
+  border-width: 1px;
+  padding: 8px 16px 8px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  height: 40px;
+  position: absolute;
+  right: 24px;
+  left: 24px;
+  bottom: 24px;
+}
+.chat .label {
+  color: #828282;
+  text-align: left;
+  font-family: var(--presets-body2-font-family, "Inter-Regular", sans-serif);
+  font-size: var(--presets-body2-font-size, 16px);
+  line-height: var(--presets-body2-line-height, 24px);
+  font-weight: var(--presets-body2-font-weight, 400);
+  position: relative;
+  flex: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .mic {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.chat .smile {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.chat .image {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.chat .messages {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  right: 24px;
+  left: 24px;
+  bottom: 96px;
+}
+.chat .bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.chat .frame-2610366 {
+  background: #000000;
+  border-radius: 16px 16px 4px 16px;
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  max-width: 480px;
+  position: relative;
+}
+.chat .no-honestly-i-m-thinking-of-a-career-pivot {
+  color: #ffffff;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat .frame-2610367 {
+  background: #000000;
+  border-radius: 16px 16px 4px 16px;
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  max-width: 480px;
+  position: relative;
+}
+.chat .this-is-the-main-chat-template {
+  color: #ffffff;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat .date {
+  color: #828282;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  height: 24px;
+}
+.chat .bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.chat .frame-26103662 {
+  background: #e0e0e0;
+  border-radius: 24px 16px 16px 4px;
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  max-width: 480px;
+  position: relative;
+}
+.chat .oh {
+  color: #000000;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat .frame-26103672 {
+  background: #e0e0e0;
+  border-radius: 24px 16px 16px 4px;
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  max-width: 480px;
+  position: relative;
+}
+.chat .cool {
+  color: #000000;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat .frame-2610369 {
+  background: #e0e0e0;
+  border-radius: 24px 16px 16px 4px;
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  max-width: 480px;
+  position: relative;
+}
+.chat .how-does-it-work {
+  color: #000000;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat .bubbles2 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.chat .simple {
+  color: #ffffff;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat
+  .you-just-edit-any-text-to-type-in-the-conversation-you-want-to-show-and-delete-any-bubbles-you-don-t-want-to-use {
+  color: #ffffff;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat .frame-26103692 {
+  background: #000000;
+  border-radius: 16px 16px 4px 16px;
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  max-width: 480px;
+  position: relative;
+}
+.chat .boom {
+  color: #ffffff;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat .hmmm {
+  color: #000000;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat .i-think-i-get-it {
+  color: #000000;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat .frame-2610370 {
+  background: #e0e0e0;
+  border-radius: 24px 16px 16px 4px;
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  max-width: 480px;
+  position: relative;
+}
+.chat .will-head-to-the-help-center-if-i-have-more-questions-tho {
+  color: #000000;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  flex: 1;
+}
+.chat .chat-header {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #e0e0e0;
+  border-width: 0px 0px 1px 0px;
+  padding: 16px 24px 16px 24px;
+  height: 80px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.chat .person2 {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 24px;
+  top: 16px;
+}
+.chat .avatar2 {
+  background: #f7f7f7;
+  border-radius: 1000px;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.chat .text {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.chat .helena-hills {
+  color: #000000;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+}
+.chat .active-20-m-ago2 {
+  color: #454545;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .icons {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  right: 24px;
+  top: 28px;
+}
+.chat .phone {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.chat .video {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.chat .menu-item {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0px 16px 0px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50px;
+  height: 39px;
+  position: absolute;
+  left: 628px;
+  top: 20px;
+}
+.chat .search {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.chat .list {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #e0e0e0;
+  border-width: 0px 1px 0px 0px;
+  width: 400px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.chat .chat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 400px;
+  position: absolute;
+  left: 0px;
+  top: 134px;
+}
+.chat .conversation2 {
+  background: #f7f7f7;
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.chat .avatar3 {
+  background: #f7f7f7;
+  border-radius: 1000px;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  position: relative;
+  overflow: hidden;
+}
+.chat .text2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  position: relative;
+}
+.chat .helena-hills2 {
+  color: #000000;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--body-text-font-size, 20px);
+  line-height: var(--body-text-line-height, 150%);
+  font-weight: var(--body-text-font-weight, 500);
+  position: relative;
+}
+.chat .will-head-to-the-help-center {
+  color: #454545;
+  text-align: left;
+  font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--small-text-font-size, 16px);
+  line-height: var(--small-text-line-height, 150%);
+  font-weight: var(--small-text-font-weight, 500);
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .conversation3 {
+  border-radius: 8px;
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.chat .carlo-emilio {
+  color: #000000;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--body-text-font-size, 20px);
+  line-height: var(--body-text-line-height, 150%);
+  font-weight: var(--body-text-font-weight, 500);
+  position: relative;
+}
+.chat .let-s-go {
+  color: #454545;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .oscar-davis {
+  color: #000000;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--body-text-font-size, 20px);
+  line-height: var(--body-text-line-height, 150%);
+  font-weight: var(--body-text-font-weight, 500);
+  position: relative;
+}
+.chat .trueeeeee {
+  color: #454545;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .daniel-jay-park {
+  color: #000000;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--body-text-font-size, 20px);
+  line-height: var(--body-text-line-height, 150%);
+  font-weight: var(--body-text-font-weight, 500);
+  position: relative;
+}
+.chat .lol-yeah-are-you-coming-to-the-lunch-on-the-13-th {
+  color: #454545;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .mark-rojas {
+  color: #000000;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--body-text-font-size, 20px);
+  line-height: var(--body-text-line-height, 150%);
+  font-weight: var(--body-text-font-weight, 500);
+  position: relative;
+}
+.chat .great-catching-up-over-dinner {
+  color: #454545;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .giannis-constantinou {
+  color: #000000;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--body-text-font-size, 20px);
+  line-height: var(--body-text-line-height, 150%);
+  font-weight: var(--body-text-font-weight, 500);
+  position: relative;
+}
+.chat .yep {
+  color: #454545;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .briana-lewis {
+  color: #000000;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--body-text-font-size, 20px);
+  line-height: var(--body-text-line-height, 150%);
+  font-weight: var(--body-text-font-weight, 500);
+  position: relative;
+}
+.chat .when-are-you-coming-back-to-town-would-love-to-catch-up {
+  color: #454545;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .mom {
+  color: #000000;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--body-text-font-size, 20px);
+  line-height: var(--body-text-line-height, 150%);
+  font-weight: var(--body-text-font-weight, 500);
+  position: relative;
+}
+.chat .thanks {
+  color: #454545;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .sherry-roy {
+  color: #000000;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--body-text-font-size, 20px);
+  line-height: var(--body-text-line-height, 150%);
+  font-weight: var(--body-text-font-weight, 500);
+  position: relative;
+}
+.chat .jack-needs-to-find-a-sitter-for-the-dog-and-i-don-t-know-who-s-good {
+  color: #454545;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .rectangle-12 {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.chat .john-smith {
+  color: #000000;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--body-text-font-size, 20px);
+  line-height: var(--body-text-line-height, 150%);
+  font-weight: var(--body-text-font-weight, 500);
+  position: relative;
+}
+.chat .sg {
+  color: #454545;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chat .search2 {
+  background: #ffffff;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: #e0e0e0;
+  border-width: 1px;
+  padding: 8px 16px 8px 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 352px;
+  height: 40px;
+  position: absolute;
+  left: 24px;
+  top: 70px;
+}
+.chat .search3 {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.chat .app {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
