@@ -1,14 +1,14 @@
 import {Server} from 'socket.io';
 import http from 'http';
 import express from 'express';
-
+import Message from "../models/message.model.js";
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ["http://localhost:5173"]
-       // methods: ["GET", "POST"],
-      //  credentials: true,
+        origin: ["http://localhost:5173"],
+        // methods: ["GET", "POST"],
+         credentials: true,
     },
 });
 
@@ -36,6 +36,25 @@ io.on('connection', (socket) => {
     });
 
     // You can add more event listeners here
+
+    // When opening a group chatwhat
+    socket.on("join-group", (groupId) => {
+        socket.join(groupId);
+    });
+
+    socket.on("leave-group", (groupId) => {
+        socket.leave(groupId);
+    });
+
+    // When a group message is sent:
+    socket.on("send-group-message", async (data) => {
+        // Save to DB
+        const savedMessage = await Message.create(data.message);
+        // Emit to group room
+        io.to(data.groupId).emit("new-message", savedMessage);
+    });
+
+    // ...similar for user-to-user...
 });
 
 
