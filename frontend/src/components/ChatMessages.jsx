@@ -8,7 +8,7 @@ const ChatMessages = () => {
 
   return (
     <div className="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-4" style={{ background: "#1E1E1E" }}>
-      {messages.map((msg, idx) => {
+      {Array.isArray(messages) && messages.map((msg, idx) => {
         const isMe = msg.senderId === authUser._id;
         return (
           <div key={msg._id || idx} className={`flex ${isMe ? "justify-end" : "justify-start"}`}>
