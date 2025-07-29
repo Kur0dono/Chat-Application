@@ -3,7 +3,7 @@ import {useChatStore} from "../store/useChatStore";
 import { socket } from "../lib/socket";
 
 import ChatHeader from "./ChatHeader";
-import MessageInput from "./Messageinput";
+import MessageInput from "./MessageInput";
 import ChatMessages  from "./ChatMessages";
 import { useAuthStore } from "../store/useAuthStore";
 
@@ -62,9 +62,9 @@ const Chatcontainer = () => {
     }, [selectedUser?._id, selectedUser?.isGroup, getMessages, subscribeToMessages, unsubscribeFromMessages]);
 
     useEffect(() => {
-        if (messageEndRef.current && messages){
+      if (messageEndRef.current) {
         messageEndRef.current.scrollIntoView({ behavior: "smooth" });
-        }
+      }
     }, [messages]);
     
     if (isMessagesLoading) return <div>Loading messages...</div>; 
@@ -72,14 +72,23 @@ const Chatcontainer = () => {
 
 
     return (
-    <div className="flex-1 flex flex-col overflow-auto"> 
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      height: "100vh", 
+      width: "430px",  
+      background: "#ffffff",
+      overflow: "hidden"
+    }}
+  >
     <ChatHeader />
-    
-    <ChatMessages/>
-    
-    <MessageInput />
+    <div style={{ flex: 1, overflowY: "auto", minHeight: 0 }}>
+      <ChatMessages messageEndRef={messageEndRef} />
     </div>
-    );
+    <MessageInput />
+  </div>
+);
 };
 export default Chatcontainer;
 
