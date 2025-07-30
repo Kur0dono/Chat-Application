@@ -6,6 +6,7 @@ import ChatHeader from "./ChatHeader";
 import MessageInput from "./MessageInput";
 import ChatMessages  from "./ChatMessages";
 import { useAuthStore } from "../store/useAuthStore";
+import ChatContainerSkeleton from "./ChatContainerSkeleton";
 
 
 const Chatcontainer = () => {
@@ -67,7 +68,7 @@ const Chatcontainer = () => {
       }
     }, [messages]);
     
-    if (isMessagesLoading) return <div>Loading messages...</div>; 
+    if (isMessagesLoading) return <ChatContainerSkeleton/>; 
 
 
 
