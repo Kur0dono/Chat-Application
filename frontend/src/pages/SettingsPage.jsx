@@ -7,8 +7,8 @@ const SettingsPage = () => {
   const navigate = useNavigate();
 
   const containerStyle = {
-    minHeight: "932px", // iPhone 16 Pro Max height
-    width: "430px", // iPhone 16 Pro Max width
+    minHeight: "932px", 
+    width: "430px", 
     backgroundColor: "#FFFFFF",
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     margin: "0 auto",
@@ -114,12 +114,16 @@ const SettingsPage = () => {
   }
 
   const handleBackClick = () => {
-    navigate(-1); // Go back to the previous page
+    navigate(-1); 
   }
 
   const handleSettingClick = (setting) => {
-    console.log(`${setting} clicked`)
-    // Add navigation logic here
+    if (setting === "Profile details") {
+      navigate("/profile");
+    } else {
+      console.log(`${setting} clicked`);
+      // Add navigation logic for other settings here
+    }
   }
 
   const handleLogout = async () => {
@@ -155,7 +159,7 @@ const SettingsPage = () => {
     <motion.div
       style={containerStyle}
       initial={{ x: 0, opacity: 1 }}
-      exit={{ x: 100, opacity: 0 }} // Slide out to the right and fade
+      exit={{ x: 100, opacity: 0 }} 
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
     >

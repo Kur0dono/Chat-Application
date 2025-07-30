@@ -10,6 +10,8 @@ export const useChatStore = create((set,get) => ({
     selectedUser: null,
     isUsersloading: false,
     isMessagesLoading: false,
+    contacts: [],
+    groups: [],
 
     getUsers: async () => {
         set({ isUsersloading: true });
@@ -25,14 +27,15 @@ export const useChatStore = create((set,get) => ({
         }
     },
 
-    getMessages: async (userId) => {
+    getMessages: async (id, isGroup = false) => {
         set({ isMessagesLoading: true });
         try {
-            const response = await axiosInstance.get(`/messages/${userId}`);
-            set({ messages: response.data }); // Don't set selectedUser here!
+            const url = isGroup ? `/messages/group/${id}` : `/messages/${id}`;
+            const response = await axiosInstance.get(url);
+            set({ messages: response.data });
         } catch (error) {
             console.error('Error fetching messages:', error);
-            toast.error('Failed to load messages', error.response.data.message);
+            toast.error('Failed to load messages', error.response?.data?.message);
         } finally {
             set({ isMessagesLoading: false });
         }
@@ -41,10 +44,15 @@ export const useChatStore = create((set,get) => ({
     sendMessage: async (messageData) => {
         const { selectedUser, messages } = get();
         try {
-            const response = await axiosInstance.post(`/messages/send/${selectedUser._id}`, messageData);
+            let response;
+            if (selectedUser.isGroup) {
+                response = await axiosInstance.post(`/messages/send-group/${selectedUser._id}`, messageData);
+            } else {
+                response = await axiosInstance.post(`/messages/send/${selectedUser._id}`, messageData);
+            }
             set({ messages: [...messages, response.data] });
         } catch (error) {
-            toast.error('Failed to send message', error.response.data.message);
+            toast.error('Failed to send message', error.response?.data?.message);
         }
     },
 
@@ -88,5 +96,33 @@ export const useChatStore = create((set,get) => ({
         } finally {
             set({ isUsersloading: false });
         }
+    },
+
+    updateSidebarGroupAvatar: (groupId, newAvatar) => {
+        set(state => {
+            const updatedSidebarUsers = state.sidebarUsers.map(item => {
+                if (item.type === 'group' && item.group && item.group._id === groupId) {
+                    return {
+                        ...item,
+                        group: {
+                            ...item.group,
+                            avatar: newAvatar
+                        }
+                    };
+                }
+                return item;
+            });
+            return { sidebarUsers: updatedSidebarUsers };
+        });
+    },
+
+    setMessages: (updater) =>
+    set((state) =>
+        typeof updater === "function" ? { messages: updater(state.messages) } : { messages: updater }
+    ),
+
+    getContactsAndGroups: async () => {
+        const res = await axiosInstance.get("/contacts");
+        set({ contacts: res.data.contacts, groups: res.data.groups });
     },
 }));

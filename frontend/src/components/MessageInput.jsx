@@ -1,5 +1,4 @@
 
-
 import { useState, useRef } from "react"
 import { useChatStore } from "../store/useChatStore"
 import { useAuthStore } from "../store/useAuthStore"
@@ -44,7 +43,7 @@ const MessageInput = () => {
   const handleSendMessage = async (e) => {
     e.preventDefault()
     if (!selectedUser) return
-    if (!text.trim() && !imagePreview) return // Only block if both are empty
+    if (!text.trim() && !imagePreview) return 
 
     await sendMessage({
       text,
@@ -75,6 +74,7 @@ const MessageInput = () => {
     borderTop: "1px solid #ffffff",
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     position: "relative",
+   
   }
 
   const inputWrapperStyle = {

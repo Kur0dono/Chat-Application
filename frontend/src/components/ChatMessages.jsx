@@ -1,4 +1,4 @@
-
+"use client"
 
 import { useState } from "react"
 import { useChatStore } from "../store/useChatStore"
@@ -56,8 +56,10 @@ const ChatMessages = ({ messageEndRef }) => {
     backgroundColor: "#ffffff",
     display: "flex",
     flexDirection: "column",
-    gap: "16px",
+    gap: "10px",
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    minHeight: 0,
+    overflowY: "auto",
   }
 
   const messageContainerStyle = (isMe) => ({

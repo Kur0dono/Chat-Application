@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
-import { Eye, EyeOff, Loader2, Lock, Mail } from "lucide-react";
+import { Eye, EyeOff,  } from "lucide-react";
 import email from "../assets/Email.svg";
 import lock from "../assets/Lock.svg";
 import doublecloud from "../assets/double cloud.svg";
@@ -24,8 +24,8 @@ const LoginPage = () => {
   };
 
   const containerStyle = {
-    minHeight: "956px", // iPhone 16 Pro Max height
-    width: "440px", // iPhone 16 Pro Max width
+    minHeight: "936px", // iPhone 16 Pro Max height
+    width: "430px", // iPhone 16 Pro Max width
     backgroundColor: "#FFFFFF",
     display: "flex",
     flexDirection: "column",
@@ -123,11 +123,18 @@ const LoginPage = () => {
   }
 
   const linkStyle = {
+    display: "flex",
     color: "#888888",
     fontSize: "16px",
     textAlign: "center",
     textDecoration: "none",
     cursor: "pointer",
+    flexDirection: "row",
+    gap: "4px",
+  }
+
+  const account= {
+    color: "#000000",
   }
 
   const handleInputFocus = (e) => {
@@ -216,21 +223,23 @@ const LoginPage = () => {
                 required
                 disabled={isLoggingIn}
               />
-              <img src={lock} alt="Lock" style={iconStyle} />
+             
               <button
                 type="button"
                 onClick={() => setShowPassword((v) => !v)}
                 style={{
                   position: "absolute",
-                  right: "45px",
+                  right: "18px",
                   top: "50%",
                   transform: "translateY(-50%)",
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  color: "#888888",
+                  color: "#282828ff",
                   fontSize: "18px",
                   padding: 0,
+                  outline: "none",
+                  border: "none",
                 }}
                 tabIndex={-1}
               >
@@ -253,7 +262,7 @@ const LoginPage = () => {
 
         {/* Create Account Link */}
         <div style={linkStyle} onClick={handleCreateAccount}>
-          New here ? <span style={{  cursor: "pointer" }}>Create an account</span>
+          New here ? <div style={account}> <span style={{  cursor: "pointer" }}>Create an account</span></div>
         </div>
       </div>
     </div>

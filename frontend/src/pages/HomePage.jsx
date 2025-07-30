@@ -4,6 +4,7 @@ import { useAuthStore } from "../store/useAuthStore";
 import Chatcontainer from "../components/Chatcontainer";
 import cloud from "../assets/cloud.svg";
 import { useNavigate } from "react-router-dom";
+import SidebarSkeleton from "../components/SidebarSkeleton";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -19,20 +20,21 @@ const HomePage = () => {
 
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [activeFilter, setActiveFilter] = useState("all");
+  
   const [searchTerm, setSearchTerm] = useState("");
 
-  // NEW: Sidebar state
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     getSidebarUsersWithLastMessages();
   }, [getSidebarUsersWithLastMessages]);
 
-  if (isUsersloading) return <div>Loading...</div>;
+    if (isUsersloading) {
+    return <SidebarSkeleton count={6} />; // Render 6 skeleton items
+  }
   if (selectedUser) return <Chatcontainer />;
 
-  // Your existing filtering logic
+  
   const filteredSidebarUsers = showOnlineOnly
     ? sidebarUsers.filter(({ user }) => user && onlineUsers.includes(user._id))
     : sidebarUsers;
@@ -54,7 +56,7 @@ const HomePage = () => {
     return false;
   });
 
-  // Your existing styles
+  
   const containerStyle = {
     minHeight: "932px",
     width: "430px",
@@ -63,11 +65,14 @@ const HomePage = () => {
     margin: "0 auto",
     display: "flex",
     flexDirection: "column",
-    position: "relative", // NEW: For sidebar positioning
-    overflow: "hidden", // NEW: Hide sidebar when closed
+    position: "relative", 
+    overflow: "hidden", 
+    height: "100vh", 
+    
+    
   };
 
-  // NEW: Sidebar overlay style
+  
   const sidebarOverlayStyle = {
     position: "absolute",
     top: 0,
@@ -79,9 +84,10 @@ const HomePage = () => {
     opacity: isSidebarOpen ? 1 : 0,
     visibility: isSidebarOpen ? "visible" : "hidden",
     transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    
   };
 
-  // NEW: Sidebar container style
+ 
   const sidebarStyle = {
     position: "absolute",
     top: 0,
@@ -96,11 +102,13 @@ const HomePage = () => {
     display: "flex",
     flexDirection: "column",
     padding: "32px 24px 24px 24px",
+    
   };
 
-  // NEW: Sidebar header style
+  
   const sidebarHeaderStyle = {
-    marginBottom: "25px",
+    marginBottom: "20px",
+    borderBottom: "1px solid #c7c7c7ff",
   };
 
   const sidebarTitleStyle = {
@@ -108,9 +116,9 @@ const HomePage = () => {
     fontWeight: "bold",
     color: "#000000",
     margin: "0 0 24px 0",
+    
   };
 
-  // NEW: User profile section style
   const userProfileStyle = {
     display: "flex",
     alignItems: "center",
@@ -133,7 +141,7 @@ const HomePage = () => {
     color: "#000000",
   };
 
-  // NEW: Menu items style
+
   const menuListStyle = {
     display: "flex",
     flexDirection: "column",
@@ -163,26 +171,26 @@ const HomePage = () => {
     fontWeight: "500",
   };
 
-  // Your existing styles (keeping them the same)
   const headerStyle = {
     padding: "20px 24px 20px 24px",
     backgroundColor: "#FFFFFF",
-    borderBottom: "1px solid #f0f0f0",
+    borderBottom: "1px solid #e7e7e7ff",
+    flexShrink: 0,
   };
 
   const topBarStyle = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    height: "40px",
+    height: "50px",
   };
 
   const logoStyle = {
     width: "32px",
     height: "32px",
     flexShrink: 0,
-    cursor: "pointer", // NEW: Make it clickable
-    transition: "transform 0.2s ease", // NEW: Add hover effect
+    cursor: "pointer", 
+    transition: "transform 0.2s ease", 
   };
 
   const centerContentStyle = {
@@ -203,7 +211,7 @@ const HomePage = () => {
     left: "0",
     right: "0",
     display: "flex",
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "#f1f1f1ff",
     borderRadius: "15px",
     padding: "2px",
     width: "280px",
@@ -287,13 +295,14 @@ const HomePage = () => {
   const chatListStyle = {
     flex: 1,
     overflowY: "auto",
+    width: "100%"
   };
 
   const chatItemStyle = {
     display: "flex",
     alignItems: "center",
     padding: "16px 24px",
-    borderBottom: "1px solid #f5f5f5",
+    borderBottom: "1px solid #dfdfdfff",
     cursor: "pointer",
     transition: "background-color 0.2s ease",
   };
@@ -335,12 +344,12 @@ const HomePage = () => {
     flexShrink: 0,
   };
 
-  // Event handlers
+ 
   const handleSearchToggle = () => {
     setIsSearchActive(!isSearchActive);
   };
 
-  // NEW: Sidebar handlers
+ 
   const handleCloudClick = () => {
     setIsSidebarOpen(true);
   };
@@ -357,13 +366,14 @@ const HomePage = () => {
     } else if (item === "Log out") {
       await logout();
       navigate("/login");
-    } else {
-      // Add your navigation logic for other items here
+    } else if (item === "Contacts") {
+      navigate("/contacts");
+     
     }
     handleCloseSidebar();
   };
 
-  // NEW: Cloud logo hover effects
+ 
   const handleCloudHover = (e) => {
     e.currentTarget.style.transform = "scale(1.1)";
   };

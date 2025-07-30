@@ -9,6 +9,7 @@ import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
 import WelcomePage from "./pages/WelcomePage";
 import AddGroup from "./pages/Addgroup";
+import ContactsPage from "./pages/ContactsPage";
 
 import { useAuthStore } from "./store/useAuthStore";
 import { useEffect } from "react";
@@ -36,7 +37,7 @@ const App = () => {
 
   return (
     <div>
-      <Navbar />
+      
 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -48,6 +49,12 @@ const App = () => {
             path="/login"
             element={!authUser ? <LoginPage /> : <Navigate to="/home" />}
           />
+
+         <Route
+          path="/contacts"
+          element={authUser ? <ContactsPage /> : <Navigate to="/login" />}
+          />
+
           <Route
             path="/signup"
             element={!authUser ? <SignUpPage /> : <Navigate to="/home" />}

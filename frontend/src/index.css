@@ -1,3 +1,12 @@
+/* global Index.css */
+
+html, body, #root { /* Apply to html, body, and the root element of your React app */
+  height: 100%; /* Ensure they all take full height */
+  margin: 0;
+  padding: 0;
+  /* font-family and other global styles can remain */
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -5,7 +14,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,11 +32,11 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  /* Remove or comment out place-items: center; */
+  /* place-items: center; */ /* <--- REMOVE THIS LINE */
+  display: flex; /* Keep if #root is a flex item, which it usually is */
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; /* This ensures the body takes at least full viewport height */
 }
 
 h1 {

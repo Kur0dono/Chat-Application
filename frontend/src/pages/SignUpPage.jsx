@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useAuthStore } from '../store/useAuthStore';
-
+import { Eye, EyeOff,  } from "lucide-react";
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -36,8 +36,8 @@ const SignUpPage = () => {
   };
 
   const containerStyle = {
-    minHeight: "956px", // iPhone 16 Pro Max height
-    width: "440px", // iPhone 16 Pro Max width
+    minHeight: "936px", // iPhone 16 Pro Max height
+    width: "430px", // iPhone 16 Pro Max width
     backgroundColor: "#FFFFFF",
     display: "flex",
     flexDirection: "column",
@@ -256,7 +256,7 @@ const SignUpPage = () => {
                 onClick={() => setShowPassword((v) => !v)}
                 style={{
                   position: "absolute",
-                  right: "45px",
+                  right: "15px",
                   top: "50%",
                   transform: "translateY(-50%)",
                   background: "none",
@@ -265,19 +265,14 @@ const SignUpPage = () => {
                   color: "#888888",
                   fontSize: "18px",
                   padding: 0,
+                  outline: "none",
+                  border: "none",
                 }}
                 tabIndex={-1}
               >
-                {showPassword ? "🙈" : "👁️"}
+                {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
               </button>
-              <svg style={iconStyle} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
+             
             </div>
           </div>
 
