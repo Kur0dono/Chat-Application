@@ -6,7 +6,7 @@ Real-time Messaging: Experience instant message delivery and updates powered by 
 
 Direct & Group Chats: Connect with friends in one-on-one conversations or collaborate in dynamic group environments.
 
-Media Sharing: Easily send and receive images, videos, and audio messages within your chats.
+Media Sharing: Easily send and receive images within your chats.
 
 User & Group Profiles: Manage your profile and group details, including custom profile pictures.
 
@@ -162,3 +162,4 @@ go to start command then type npm run start then add your instance type below
 Add your .env files from the backend to the Enviroment variables make sure not to include NODE_ENV
 
 Continuous Deployment: Once configured, Render will automatically detect new pushes to your connected Git branch, rebuild, and deploy your application seamlessly.
+
