@@ -266,7 +266,7 @@ const SignUpPage = () => {
                   fontSize: "18px",
                   padding: 0,
                   outline: "none",
-                  border: "none",
+                 
                 }}
                 tabIndex={-1}
               >
