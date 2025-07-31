@@ -3,6 +3,7 @@ import {checkAuth, login, logout, signup, updateProfile } from '../controllers/a
 import { protectRoute } from '../middleware/auth.middleware.js';
 
 const router = express.Router();
+console.log("Loaded auth routes");
 
 router.post("/signup", signup);
 router.post("/login", login);
