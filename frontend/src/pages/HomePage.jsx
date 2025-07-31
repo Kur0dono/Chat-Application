@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useChatStore } from "../store/useChatStore";
 import { useAuthStore } from "../store/useAuthStore";
 import Chatcontainer from "../components/Chatcontainer";
-import cloud from "../assets/cloud.svg";
+import cloud from "../assets/Cloud.svg";
 import { useNavigate } from "react-router-dom";
 import SidebarSkeleton from "../components/SidebarSkeleton";
 
