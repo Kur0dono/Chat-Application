@@ -4,6 +4,7 @@ import { protectRoute } from "../middleware/auth.middleware.js";
 import { updateGroupAvatar } from "../controllers/group.controller.js";
 
 const router = express.Router();
+console.log("Loaded group routes");
 
 router.post("/", protectRoute, createGroup);
 router.get("/", protectRoute, getGroups);
