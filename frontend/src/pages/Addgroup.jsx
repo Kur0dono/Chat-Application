@@ -18,7 +18,7 @@ const [allContacts, setAllContacts] = useState([])
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://192.168.100.196:5001/api/users", { withCredentials: true })
+        const res = await axios.get("http://localhost:5001/api/users", { withCredentials: true })
         console.log("Fetched users:", res.data)
         setAllContacts(res.data)
       } catch (err) {
@@ -310,7 +310,7 @@ const [allContacts, setAllContacts] = useState([])
     if (selectedContacts.length < 2 || !groupName.trim()) return
     try {
       await axios.post(
-        "http://192.168.100.196:5001/api/groups",
+        "http://localhost:5001/api/groups",
         {
           name: groupName,
           members: selectedContacts.map((c) => c._id),
