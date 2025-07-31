@@ -7,7 +7,7 @@ import cloudinary from "../lib/cloudinary.js";
 export const signup = async (req, res) => {
     // Handle user signup logic here
     //res.send("signup route");
-    const{fullname,email,password} = req.body
+    const{fullname,email,password,phone} = req.body
 
     try {
 
@@ -31,6 +31,7 @@ export const signup = async (req, res) => {
             fullname,
             email,
             password: hashedPassword,
+            phone,
             //profilePic: req.file ? req.file.path : "",
         });
 
