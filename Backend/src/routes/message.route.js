@@ -3,6 +3,7 @@ import { getMessages, sendMessage, getLastMessagesForSidebar, sendGroupMessage, 
 import { protectRoute } from '../middleware/auth.middleware.js';
 
 const router = express.Router();
+console.log("Loaded message routes");
 
 router.get("/:id", protectRoute, getMessages);
 router.get("/sidebar/last-messages", protectRoute, getLastMessagesForSidebar);
