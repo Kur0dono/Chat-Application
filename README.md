@@ -110,7 +110,7 @@ npm install # or yarn install
 
 ```bash
 cd Backend
-npm start # or node server.js
+npm run dev # or node server.js
 ```
 
 The backend server should start and be accessible at: [http://localhost:5001](http://localhost:5001)
