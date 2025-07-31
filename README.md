@@ -182,14 +182,18 @@ This application is designed for easy continuous deployment using platforms like
 
 1. **Connect your GitHub Repository**: Link your `Chat-Application` GitHub repository to your Render account.
 2. **Configure the App Service**: Create a new "Web Service" on Render.
-3. Go to the **Start command** and type:
+3. Go to the **Build command** and type:
 
 ```bash
 npm run build
-npm start
+```
+4. Go to the **Start command** and type:
+
+ ```bash
+npm run start
 ```
 
-4. Add your `.env` values from the backend to the Environment Variables section (excluding `NODE_ENV`).
-5. **Continuous Deployment**: Render will automatically detect pushes to your GitHub branch and redeploy.
+6. Add your `.env` values from the backend to the Environment Variables section (excluding `NODE_ENV`).
+7. **Continuous Deployment**: Render will automatically detect pushes to your GitHub branch and redeploy.
 
 ---
