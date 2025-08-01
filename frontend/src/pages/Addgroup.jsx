@@ -213,6 +213,8 @@ const [allContacts, setAllContacts] = useState([])
     width: "60px",
     height: "150px",
     zIndex: 1000, 
+    border: "none",
+    outline: "none",
   }
 
   const cloudButtonStyle = {
@@ -226,6 +228,7 @@ const [allContacts, setAllContacts] = useState([])
     position: "relative",
     padding: 0,
     filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))", 
+    outline: "none",
   }
 
   const closeButtonStyle = {
@@ -452,7 +455,7 @@ const [allContacts, setAllContacts] = useState([])
           <img
             src={Cloud}
             alt="Create Group"
-            style={{ width: "100%", height: "100%", objectFit: "contain" }}
+            style={{ width: "100%", height: "100%", objectFit: "contain", border: "none", outline: "none" }}
           />
         </button>
       </div>

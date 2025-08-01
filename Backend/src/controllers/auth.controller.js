@@ -5,60 +5,92 @@ import cloudinary from "../lib/cloudinary.js";
 
 
 export const signup = async (req, res) => {
-    // Handle user signup logic here
-    //res.send("signup route");
-    const{fullname,email,password,phone} = req.body
+ const DEFAULT_PROFILE_PIC = "https://placehold.co/150x150/d1d5db/4b5563?text=User";
+  const { fullname, email, password, phone, profilePic } = req.body;
 
-    try {
-
-        if (!fullname || !email || !password) {
-            return res.status(400).json({ message: "Please fill all the fields" });
-        }
-
-        // hash passwrod 
-        if (password.length < 6) {
-            return res.status(400).json({ message: "Password must be at least 6 characters long" });
-        }
-        // check if user already exists
-        const user = await User.findOne({ email });
-        if (user) return res.status(400).json({ message: "Email already exists" });
-
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-
-        // create new user
-        const newUser = new User({
-            fullname,
-            email,
-            password: hashedPassword,
-            phone,
-            //profilePic: req.file ? req.file.path : "",
-        });
-
-
-        if (newUser) {
-            //generate  jwt token here
-            generateToken(newUser._id, res);
-            await newUser.save();
-
-
-            res.status(201).json({ 
-                _id: newUser._id,
-                fullname: newUser.fullname,
-                email: newUser.email,
-                profilePic: newUser.profilePic,
-                phone: newUser.phone,
-                bio: newUser.bio,
-             });
-
-        } else {
-            return res.status(400).json({ message: "Invalid user data" });
-        }
-
-    }catch (error) {
-        console.log("Error in signup controller", error.message);
-        return res.status(500).json({ message: "Internal server error" });
+  try {
+    if (!fullname || !email || !password || !phone) {
+      return res.status(400).json({ message: "Please fill all the required fields" });
     }
+
+    if (password.length < 6) {
+      return res.status(400).json({ message: "Password must be at least 6 characters long" });
+    }
+
+    const user = await User.findOne({ email });
+    if (user) {
+      return res.status(400).json({ message: "Email already exists" });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    let cloudinaryImageUrl = DEFAULT_PROFILE_PIC;
+
+    if (profilePic) {
+      const uploadResponse = await cloudinary.uploader.upload(profilePic, {
+        folder: "chat-app/images",
+      });
+      cloudinaryImageUrl = uploadResponse.secure_url;
+    }
+
+    const newUser = new User({
+      fullname,
+      email,
+      password: hashedPassword,
+      phone,
+      profilePic: cloudinaryImageUrl,
+    });
+
+  try {
+    if (!fullname || !email || !password || !phone) {
+      return res.status(400).json({ message: "Please fill all the required fields" });
+    }
+
+    if (password.length < 6) {
+      return res.status(400).json({ message: "Password must be at least 6 characters long" });
+    }
+
+    const user = await User.findOne({ email });
+    if (user) {
+      return res.status(400).json({ message: "Email already exists" });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    let cloudinaryImageUrl = DEFAULT_PROFILE_PIC;
+
+    if (profilePic) {
+      const uploadResponse = await cloudinary.uploader.upload(profilePic, {
+        folder: "chat-app/images",
+      });
+      cloudinaryImageUrl = uploadResponse.secure_url;
+    }
+
+    const newUser = new User({
+      fullname,
+      email,
+      password: hashedPassword,
+      phone,
+      profilePic: cloudinaryImageUrl,
+    });
+
+    await newUser.save();
+    generateToken(newUser._id, res);
+
+    res.status(201).json({
+      _id: newUser._id,
+      fullname: newUser.fullname,
+      email: newUser.email,
+      profilePic: newUser.profilePic,
+      phone: newUser.phone,
+      bio: newUser.bio,
+    });
+  } catch (error) {
+    console.error("Error in signup controller:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 export const login = async (req, res) => {
